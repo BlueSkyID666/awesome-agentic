@@ -1004,6 +1004,12 @@ Read every score as a result for a specific **benchmark release + agent harness 
 - **Best for:** evaluating autonomous coding agents and issue-resolution systems.
 - **Caveat:** treat SWE-bench Verified as historical, not a frontier model selector. OpenAI stopped reporting it after finding material test or specification flaws in 59.4% of 138 frequently missed tasks plus evidence of training contamination, and now recommends SWE-bench Pro for frontier comparisons. Last checked: 2026-09-04.
 
+### Senior SWE-Bench
+- **Link:** https://github.com/snorkel-ai/senior-swe-bench-v2026.06
+- **Why it stands out:** Harbor-compatible benchmark for feature design and runtime debugging from underspecified requests, combining behavioral tests, adaptive validation, and code-quality grading rather than patch correctness alone.
+- **Best for:** teams evaluating delegated engineering where an agent must infer intent and fit an existing codebase; compare ProgramBench for whole-program reconstruction.
+- **Scope note:** the [methodology](https://senior-swe-bench.snorkel.ai/blog/2026-06-16-how-it-works) separates public tasks from a private holdout. The [July refresh](https://senior-swe-bench.snorkel.ai/blog/2026-07-30-refresh) adds three-trial reliability metrics and a model-panel judge. Pin the task split, validator, judges, and trial count; local public-suite results are not the full leaderboard, and code-quality scores are model-judged, not proof of human merge approval. Last checked: 2026-10-11.
+
 ### ProgramBench
 - **Link:** https://github.com/facebookresearch/ProgramBench
 - **Why it stands out:** tests whether an agent can reconstruct an entire working program from only its executable and documentation, exposing software-design and specification-discovery failures that issue-resolution benchmarks miss.
