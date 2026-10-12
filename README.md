@@ -604,8 +604,8 @@ This is distinct from generic agent memory. A memory system remembers. A Persona
 ### LifeOS / Personal AI Infrastructure
 - **Link:** https://github.com/danielmiessler/LifeOS
 - **Why it stands out:** personal context and skill layer that adds goals, identity, persistent memory, routing, and current-to-ideal-state workflows on top of an existing coding-agent harness rather than replacing it.
-- **Best for:** builders shaping a personal AI workspace around life and work; it is harness-agnostic by design, but Claude Code remains the maintainer's most-tested path.
-- **Evidence:** the official README documents installation through capable coding agents and a self-contained skill library, while distinguishing portability goals from the primary Claude Code development path. Last checked: 2026-09-12.
+- **Best for:** builders shaping a personal AI workspace around life and work atop an existing coding agent; choose Claude Code for the documented always-on integration.
+- **Integration note:** the [install guide](https://github.com/danielmiessler/LifeOS/blob/main/LifeOS/INSTALL.md) says automatic memory-loop and per-turn context hooks are wired for Claude Code, not other harnesses, which load session context and run workflows on request. Portability does not imply feature parity. The LifeOS system prompt also requires its launcher or equivalent explicit loading; a plain `claude` session does not load it. Last checked: 2026-10-12.
 
 ### OpenClaw
 - **Link:** https://github.com/openclaw/openclaw
