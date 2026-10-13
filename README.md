@@ -1209,13 +1209,14 @@ Agentic security needs its own eval loop because prompt injection, tool misuse, 
 - **Link:** https://github.com/mlflow/mlflow
 - **Why it stands out:** Apache-2.0 AI engineering platform that now connects the traditional model lifecycle with agent tracing, evaluation, monitoring, prompt management, optimization, and model-access governance.
 - **Best for:** teams that want one self-hostable control plane across production agents, LLM applications, and existing ML workflows.
-- **Evidence:** 27k+ GitHub stars, active v3 releases through June 2026, and first-party agent tracing and scorer-based evaluation docs. Last checked: 2026-07-28.
+- **Evaluation note:** [automatic evaluation](https://mlflow.org/docs/latest/genai/eval-monitor/automatic-evaluations/) requires an AI Gateway judge endpoint and supports LLM judges, not code-based scorers. Enabling a judge covers traces and sessions at most one hour old, not a historical backfill; use offline evaluation for regression datasets. Judge execution sends relevant trace data to the configured model, so self-hosted tracking does not imply local evaluation. Last checked: 2026-10-13.
 
 ### Langfuse
 - **Link:** https://github.com/langfuse/langfuse
 - **Why it stands out:** self-hostable LLM engineering platform that connects production traces and sessions to versioned prompts, datasets, experiments, code/LLM evaluators, and human feedback.
 - **Best for:** teams that want a shared trace-to-eval-to-prompt workflow across engineering and human reviewers, with managed or self-hosted deployment.
 - **License note:** [MIT core](https://github.com/langfuse/langfuse/blob/main/LICENSE), with designated `ee` directories governed by a separate commercial enterprise license. Last checked: 2026-09-13.
+- **Privacy note:** [server-side ingestion masking](https://langfuse.com/self-hosting/security/data-masking) is Enterprise-only, covers the OTLP ingestion endpoint rather than legacy ingestion, and defaults to fail-open on callback errors. Raw events reach blob storage before worker-side masking. Use client-side masking when sensitive context must not leave the application; server-side masking is not a pre-storage privacy boundary. Last checked: 2026-10-13.
 
 ### Phoenix
 - **Link:** https://github.com/Arize-ai/phoenix
