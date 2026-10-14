@@ -456,6 +456,7 @@ Agents that operate businesses eventually hit messy PDFs, scans, tables, slides,
 - **Link:** https://github.com/docling-project/docling
 - **Why it stands out:** IBM-backed open-source parser with broad format coverage, local execution, layout/table/formula understanding, GenAI integrations, and an MCP server for agentic applications.
 - **Best for:** teams that need a self-hostable document ingestion layer for RAG, agents, and sensitive enterprise documents.
+- **Deployment note:** the [offline guide](https://docling-project.github.io/docling/usage/advanced_options/#model-prefetching-and-offline-usage) requires prefetched model artifacts for air-gapped use; models otherwise download on first use. Remote model services require explicit `enable_remote_services=True`, but that switch does not control model downloads. Choose local inputs and stages as well as cached artifacts before treating a pipeline as offline. Last checked: 2026-10-14.
 
 ### OpenDataLoader PDF
 - **Link:** https://github.com/opendataloader-project/opendataloader-pdf
@@ -494,9 +495,9 @@ Agents that operate businesses eventually hit messy PDFs, scans, tables, slides,
 
 ### LiteParse
 - **Link:** https://github.com/run-llama/liteparse
-- **Why it stands out:** Apache-2.0 local-first document parser from the LlamaIndex ecosystem, focused on fast PDF parsing, spatial text extraction, bounding boxes, screenshots, and Tesseract.js OCR without GPU or cloud dependency.
-- **Best for:** builders who need a lightweight open-source parser for local agent/RAG ingestion before reaching for managed OCR or heavier multimodal document stacks.
-- **Evidence:** active `run-llama/liteparse` repo, Apache-2.0 license, v1.5.3 release on 2026-04-29, and local/no-cloud README positioning. Last checked: 2026-05-17.
+- **Why it stands out:** Apache-2.0 Rust/PDFium parser with Python, Node.js, and WASM bindings, spatial text and bounding boxes, heuristic Markdown, screenshots, and bundled Tesseract OCR without a required cloud service.
+- **Best for:** fast local document-to-context ingestion and routing before heavier parsing; Office inputs require LibreOffice conversion, and heuristic Markdown is not a substitute for complex chart or layout understanding.
+- **Deployment note:** the [OCR setup](https://github.com/run-llama/liteparse#ocr-setup) requires pre-downloaded Tesseract language data for offline use; optional HTTP OCR sends images to the configured endpoint. Its [benchmark comparisons](https://github.com/run-llama/liteparse#benchmarks) are maintainer-run against selected local converters, not an independent ranking against full VLM pipelines. Last checked: 2026-10-14.
 
 ### OmniDocBench
 - **Link:** https://github.com/opendatalab/OmniDocBench
