@@ -1174,8 +1174,9 @@ Agentic security needs its own eval loop because prompt injection, tool misuse, 
 
 ### AgentDoG
 - **Link:** https://github.com/AI45Lab/AgentDoG
-- **Why it stands out:** open trajectory-level safety guardrail with lightweight models, fine-grained risk diagnosis, an online intervention path, and ATBench variants for general tool agents, OpenClaw, and Codex-style execution.
-- **Best for:** teams that need to inspect and block risky multi-step agent behavior rather than only scan prompts or final responses.
+- **Why it stands out:** trajectory-level safety models with fine-grained risk diagnosis and ATBench variants for general tool agents, OpenClaw, and Codex-style execution.
+- **Best for:** teams evaluating unsafe agent trajectories or adding model-based review to an existing runtime, not replacing tool authorization or execution isolation.
+- **Integration note:** the published [OpenClaw guardrail](https://github.com/AI45Lab/AgentDoG/blob/main/Online%20Agentic%20Guardrail/README.md) intercepts final replies through a WebSocket proxy at `PRE_REPLY`, after the agent may already have called tools. Suppressing a reply does not prevent earlier tool side effects. It sends the accumulated trajectory to a configured judge endpoint; scope watched sessions and choose that endpoint before exposing private traces. Last checked: 2026-10-15.
 
 ### Snyk Agent Scan
 - **Link:** https://github.com/snyk/agent-scan
