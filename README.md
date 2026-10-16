@@ -759,8 +759,9 @@ Agents need to browse, click, extract, fill forms, and operate websites and desk
 
 ### Agent S
 - **Link:** https://github.com/simular-ai/Agent-S
-- **Why it stands out:** open-source computer-use framework with research lineage and strong OSWorld results, including reported human-level desktop-agent performance.
-- **Best for:** builders comparing agents that operate full computer environments, not just web pages.
+- **Why it stands out:** open-source screenshot-based computer-use framework with a Python SDK and CLI for desktop and web applications across macOS, Windows, and Linux.
+- **Best for:** builders researching or adapting desktop-agent loops who can supply both a reasoning model and a separate GUI-grounding endpoint; distinguish the research framework from Simular's hosted Sai product.
+- **Benchmark note:** the maintainer-reported 72.6% OSWorld result uses Behavior Best-of-N rollout selection; the documented [CLI](https://github.com/simular-ai/Agent-S#cli) runs without it. Sai's separate 73% OSWorld 2.0 result is not the open-source CLI's score. Do not treat either as a current OSWorld 2.1 result or a default-run guarantee. Last checked: 2026-10-16.
 
 ### Agent Desktop
 - **Link:** https://github.com/lahfir/agent-desktop
