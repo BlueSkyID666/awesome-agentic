@@ -634,6 +634,7 @@ This is distinct from generic agent memory. A memory system remembers. A Persona
 - **Link:** https://github.com/HKUDS/nanobot
 - **Why it stands out:** unusually lightweight personal-agent stack with active releases, chat-channel gateways, WebUI, MCP/CLI-app extensions, project workspaces, local-model options, and a small core that is easier to audit than full assistant platforms.
 - **Best for:** builders who want an owned personal AI agent for tools, chats, and workflows without starting from a large OpenClaw-style system.
+- **Trust boundary:** the [security guide](https://github.com/HKUDS/nanobot/blob/main/docs/guides/secure-local-ai-agent.md) distinguishes application-level `restrictToWorkspace` from optional `bwrap` (Linux) or `seatbelt` (macOS) shell sandboxing. Neither sandbox blocks network access; Windows has no supported shell sandbox, so disable shell execution if the application guard is insufficient. Project selection does not isolate memory: use separate instances and workspaces for separate data, plus OS accounts or containers for mutually untrusted users. Last checked: 2026-10-18.
 
 ### OpenHuman
 - **Link:** https://github.com/tinyhumansai/openhuman
